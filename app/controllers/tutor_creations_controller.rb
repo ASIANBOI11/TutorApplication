@@ -90,6 +90,6 @@ class TutorCreationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tutor_creation_params
-      params.require(:tutor_creation).permit(:user_id, :first_name, :last_name, :description, :price, :subject)
+      params.require(:tutor_creation).permit(:user_id, :first_name, :last_name, :description, :price, :subject, :photo)
     end
 end

@@ -8,6 +8,9 @@
   <%= link_to "Back to tutor creations", tutor_creations_path %>
   <%= button_to "Destroy this tutor creation", @tutor_creation, method: :delete %>
 
+  <% if @tutor_creation.photo.attached?%>
+  <%= image_tag (@tutor_creation.photo), width: 500,crop: :scale, cloud_name: 'tommyblue11'  %>
+  <% end %>
 </div>
 <br>
 
@@ -27,4 +30,9 @@ braintree.setup(clientToken, "dropin", {
   container: "payment-form"
 });
 </script>
+
+<p>
+  <strong>Comments:</strong>
+  <%= render @tutor_creation.comments%>
+</p>
 
