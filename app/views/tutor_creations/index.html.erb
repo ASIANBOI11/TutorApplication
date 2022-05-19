@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tutor creations</h1>
+
+<div id="tutor_creations">
+  <% @tutor_creations.each do |tutor_creation| %>
+    <%= render tutor_creation %>
+    <p>
+      <%= link_to "Show this tutor creation", tutor_creation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tutor creation", new_tutor_creation_path %>

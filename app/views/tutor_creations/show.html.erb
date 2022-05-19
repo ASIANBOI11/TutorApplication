@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @tutor_creation %>
+
+<div>
+  <%= link_to "Edit this tutor creation", edit_tutor_creation_path(@tutor_creation) %> |
+  <%= link_to "Back to tutor creations", tutor_creations_path %>
+
+  <%= button_to "Destroy this tutor creation", @tutor_creation, method: :delete %>
+</div>
