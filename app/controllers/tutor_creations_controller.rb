@@ -1,6 +1,15 @@
 class TutorCreationsController < ApplicationController
+
+  require "rubygems"
+  require "braintree"
+
   before_action :set_tutor_creation, only: %i[ show edit update destroy ]
 
+
+  Braintree::Configuration.environment = :sandbox
+  Braintree::Configuration.merchant_id = 'k9tt22jrdqn8h9qh'
+  Braintree::Configuration.public_key = 'bfygpp9r66xqstcc'
+  Braintree::Configuration.private_key = 'e5196a23d76fdd0ada31b7af0af771b0'
   # GET /tutor_creations or /tutor_creations.json
   def index
     @tutor_creations = TutorCreation.all
@@ -8,6 +17,8 @@ class TutorCreationsController < ApplicationController
 
   # GET /tutor_creations/1 or /tutor_creations/1.json
   def show
+    @tutor_creation = TutorCreation.find(params[:id])
+    @token = Braintree::ClientToken.generate
   end
 
   # GET /tutor_creations/new
@@ -23,6 +34,7 @@ class TutorCreationsController < ApplicationController
   def create
     @tutor_creation = TutorCreation.new(tutor_creation_params)
     @tutor_creation.user_id = current_user.id
+    
     
     respond_to do |format|
       if @tutor_creation.save
@@ -47,6 +59,18 @@ class TutorCreationsController < ApplicationController
       end
     end
   end
+
+    def checkout
+    nonce = params[:payment_method_nonce]
+    result = Braintree::Transaction.sale(
+    :amount => "10", #could be any other arbitrary amount captured in params[:amount] if they weren't all $10.
+    :payment_method_nonce => nonce,
+    :options => {
+      :submit_for_settlement => true
+      }
+    )
+  end
+
 
   # DELETE /tutor_creations/1 or /tutor_creations/1.json
   def destroy

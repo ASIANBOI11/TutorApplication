@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.3"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -83,4 +83,9 @@ gem "pundit"
 gem "cloudinary", "~> 1.23"
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem "stripe"
+
+gem "webpacker"
+gem "pg", "~> 1.3", :group => :production
+gem "braintree", "~> 4.7.0"
+
 
