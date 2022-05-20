@@ -60,16 +60,6 @@ class TutorCreationsController < ApplicationController
     end
   end
 
-    def checkout
-    nonce = params[:payment_method_nonce]
-    result = Braintree::Transaction.sale(
-    :amount => "10", #could be any other arbitrary amount captured in params[:amount] if they weren't all $10.
-    :payment_method_nonce => nonce,
-    :options => {
-      :submit_for_settlement => true
-      }
-    )
-  end
 
 
   # DELETE /tutor_creations/1 or /tutor_creations/1.json
