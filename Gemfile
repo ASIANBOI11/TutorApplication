@@ -83,7 +83,7 @@ gem "pundit"
 gem "cloudinary", "~> 1.23"
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem "stripe"
-gem "webpacker"
+
 gem "pg", "~> 1.3", :group => :production
 gem "braintree", "~> 4.7.0"
 
