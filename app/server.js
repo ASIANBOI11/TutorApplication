@@ -12,13 +12,13 @@ app.use(bodyParser.urlencoded({ extended: truee }));
 
 configViewEngine(app);
 
-initWebRoutes(app):
+initWebRoutes(app);
 
 initCrobJob();
 
 let port = process.env.PORT || 8000;
 
 app.listen(port, () => {
-    console.log('App is running at the port $(port)'):
+    console.log('App is running at the port $(port)');
 })
 
