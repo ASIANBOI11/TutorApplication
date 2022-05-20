@@ -67,6 +67,10 @@ group :development do
   # gem "spring"
 end
 
+group :production do
+  gem "pg", "~> 1.3", :group => :production
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
@@ -84,7 +88,7 @@ gem "cloudinary", "~> 1.23"
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem "stripe"
 
-gem "pg", "~> 1.3", :group => :production
+
 gem "braintree", "~> 4.7.0"
 
 
