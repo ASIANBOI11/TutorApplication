@@ -2,13 +2,15 @@
 
 <h1>Tutor creations</h1>
 
-<div id="tutor_creations">
+<div id ="tutor_creations" class ="row">
   <% @tutor_creations.each do |tutor_creation| %>
+  <div class="col-md-4">
     <%= render tutor_creation %>
-    <p>
-      <%= link_to "Show this tutor creation", tutor_creation %>
-    </p>
+    <%= link_to "Show this tutor creation", tutor_creation %>
+    </div>
   <% end %>
 </div>
 
-<%= link_to "New tutor creation", new_tutor_creation_path %>
+
+<%= link_to "New tutor creation", new_tutor_creation_path, class: "btn btn-primary btn-lg btn-block" %>
+

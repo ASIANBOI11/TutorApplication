@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
-  tutor_creations: one
+  tutor_creation: one
   user: one
 
 two:
-  content: MyText
-  tutor_creations: two
+  tutor_creation: two
   user: two

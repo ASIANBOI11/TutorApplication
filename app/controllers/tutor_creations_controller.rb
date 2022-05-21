@@ -4,6 +4,8 @@ class TutorCreationsController < ApplicationController
   require "braintree"
 
   before_action :set_tutor_creation, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+
 
 
   Braintree::Configuration.environment = :sandbox

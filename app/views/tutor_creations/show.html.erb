@@ -2,11 +2,11 @@
 
 <%= render @tutor_creation %>
 
-<div>
+<div class = "row">
 
-  <%= link_to "Edit this tutor creation", edit_tutor_creation_path(@tutor_creation) %>
-  <%= link_to "Back to tutor creations", tutor_creations_path %>
-  <%= button_to "Destroy this tutor creation", @tutor_creation, method: :delete %>
+  <%= link_to "Edit this tutor creation", edit_tutor_creation_path(@tutor_creation), class: "btn btn-primary" %>
+  <%= link_to "Back to tutor creations", tutor_creations_path, class: "btn btn-primary" %>
+  <%= button_to "Destroy this tutor creation", @tutor_creation, method: :delete, class: "btn btn-primary btn-lg btn-block"%>
 
   <% if @tutor_creation.photo.attached?%>
   <%= image_tag (@tutor_creation.photo), width: 500,crop: :scale, cloud_name: 'tommyblue11'  %>
@@ -16,7 +16,9 @@
 
 <form id="checkout" method="post" action="/checkout">
   <div id="payment-form"></div>
-  <input type="submit" value="Pay $<%= @tutor_creation.price %>">
+  <input type="submit" value="Pay $<%= @tutor_creation.price%>">
+
+  
 </form>
 
 <script src="https://js.braintreegateway.com/js/braintree-2.20.0.min.js"></script>
@@ -30,5 +32,9 @@ braintree.setup(clientToken, "dropin", {
   container: "payment-form"
 });
 </script>
+
+<div class = "container">
+  <%= render 'comments/form', post: @tutor_creation %>
+</div>
 
 
